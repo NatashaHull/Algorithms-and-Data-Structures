@@ -14,6 +14,14 @@ describe LinkedList do
       list.head.value.should == 1
     end
 
+    it "successfully replaces the head" do
+      list = LinkedList.new
+      list.insert_after(nil, 1)
+      list.insert_after(nil, 2)
+
+      list.head.value.should == 2
+    end
+
     it "finds elements in the list" do
       list = LinkedList.new
       list.insert_after(nil, 1)
@@ -49,6 +57,14 @@ describe LinkedList do
       list.delete(1)
 
       list.head.value.should == 3
+    end
+
+    it "successfully removes all the elements from the list" do
+      list = LinkedList.new
+      list.insert_after(nil, 1)
+      list.delete(1)
+
+      list.head.should be_nil
     end
   end
 end
