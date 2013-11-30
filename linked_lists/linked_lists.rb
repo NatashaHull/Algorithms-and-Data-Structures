@@ -27,7 +27,7 @@ class LinkedList
 end
 
 class LinkedListItem
-  attr_accessible :value, :next_item
+  attr_accessor :value, :next_item
   def initialize(val, n_item=nil)
     @value = val
     @next_item = n_item
