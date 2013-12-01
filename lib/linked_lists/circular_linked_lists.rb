@@ -5,7 +5,10 @@ class CircularLinkedList < LinkedList
   end
 
   def delete(item)
-    if item == head
+    return unless head
+    if item == head && head == head.next_item
+      self.head = nil
+    elsif item == head
       self.head = head.next_item
     else
       head.delete(item, head)
