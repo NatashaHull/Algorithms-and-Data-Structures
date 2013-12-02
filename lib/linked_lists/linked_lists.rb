@@ -1,4 +1,8 @@
+require_relative './enumerable.rb'
+
 class LinkedList
+  include LinkedListEnumerable
+
   def head
     @head
   end

@@ -59,7 +59,6 @@ describe CircularLinkedList do
       list.head.value.should == 3
     end
 
-    #Tricky for circular lists
     it "successfully removes all the elements from the list" do
       list = CircularLinkedList.new
       list.insert_after(nil, 1)
