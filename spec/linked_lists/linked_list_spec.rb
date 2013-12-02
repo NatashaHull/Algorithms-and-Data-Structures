@@ -101,7 +101,7 @@ describe LinkedList do
     end
 
     describe '#map' do
-      it "iterates through the whole list" do
+      it "returns an altered list" do
         values = list.map { |el| el.value + 1 }
         arr_values = []
         values.each { |el| arr_values << el.value }
@@ -114,7 +114,7 @@ describe LinkedList do
         list.should_not == values
       end
 
-      it "doesn't change the list" do
+      it "doesn't change the intial list" do
         values = list.map { |el| el.value + 1 }
         arr_values = []
         list.each { |el| arr_values << el.value }
@@ -124,6 +124,26 @@ describe LinkedList do
     end
 
     describe '#select' do
+      it "returns an altered list" do
+        values = list.select { |el| el.value > 2 }
+        arr_values = []
+        values.each { |el| arr_values << el.value }
+
+        arr_values.should == [3,4]
+      end
+
+      it "returns a different list" do
+        values = list.select { |el| el.value > 2 }
+        list.should_not == values
+      end
+
+      it "doesn't change the intial list" do
+        values = list.select { |el| el.value > 2 }
+        arr_values = []
+        list.each { |el| arr_values << el.value }
+        
+        arr_values.should == [1,3,2,4]
+      end
     end
   end
 end

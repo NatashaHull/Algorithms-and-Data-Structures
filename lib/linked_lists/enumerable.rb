@@ -36,9 +36,10 @@ module LinkedListEnumerable
   end
 
   def select!(&blk)
-    prev = nil
-    self.each do |el|
-      prev.next = el.next unless blk.call(el) && !prev
+    el = head
+    while !!el
+      delete(el) unless blk.call(el)
+      el = el.next_item
     end
     self
   end
